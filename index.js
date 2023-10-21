@@ -58,6 +58,7 @@ let server = http.createServer((req,res) => {
         GET,POST,PATCH,DELETE
     }
     console.log(`http://${req.url}`)
+    return
     let method = new URL(`http://${req.url}`).searchParams.get("method")
 
     if(method == "GET" || method == null) {
