@@ -58,7 +58,7 @@ let server = http.createServer((req,res) => {
         GET,POST,PATCH,DELETE
     }
 
-    let method = new URL(path.join(__dirname,req.url)).searchParams.get("method")
+    let method = new URL(`http://${req.url}`).searchParams.get("method")
 
     if(method == "GET" || method == null) {
         functions.GET(res)
