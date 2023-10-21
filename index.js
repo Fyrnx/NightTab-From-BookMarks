@@ -57,8 +57,9 @@ let server = http.createServer((req,res) => {
     functions = {
         GET,POST,PATCH,DELETE
     }
-    console.log(`http://${req.url}`)
-    res.end("end")
+    let url = new URL(`http://www.example.com${req.url}`)
+    let method = url.searchParams.get("method")
+    res.end(method)
     return
     let method = new URL(`http://${req.url}`).searchParams.get("method")
 
