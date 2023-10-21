@@ -19,7 +19,7 @@ function random(min,max) {
 
 function randomVideo(res) {
     let url = randomUrl()
-    console.log(url);
+    console.log(url,urlsObject);
     let CharacterEntities = { 
         " ":"&nbsp;",
         "<":"%lt;",
