@@ -21,8 +21,6 @@ function random(min,max) {
 
 function randomVideo(res) {
     let url = randomUrl()
-    // let protocol = http;
-    // if((/^https:/ig).test(url)) protocol = https;
     let CharacterEntities = { 
         " ":"&nbsp;",
         "<":"%lt;",
@@ -42,7 +40,7 @@ function randomVideo(res) {
     
     Object.entries(CharacterEntities).forEach(entry => {
         let [character,entitie] = entry
-        url = url.replaceAll(entitie,character)
+        url = url?.replaceAll(entitie,character)
     })
 
 
@@ -89,6 +87,7 @@ let server = http.createServer((req,res) => {
     })
 
     function POST() {
+        console.log("POST",urls,urlsObject)
         urls.forEach(url => { 
             let exist = urlsObject.indexOf(url) != -1
             if(!exist) {
@@ -98,10 +97,12 @@ let server = http.createServer((req,res) => {
     }
 
     function PATCH() {
+        console.log("PATCH",urls,urlsObject)
         urlsObject = urls
     }
 
     function DELETE() {
+        console.log("DELETE",urls,urlsObject)
         urls.forEach(url => { 
             let index = urlsObject.indexOf(url)
             if(index != -1) {
