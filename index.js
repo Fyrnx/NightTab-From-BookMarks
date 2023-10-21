@@ -40,7 +40,7 @@ function randomVideo(res) {
     
     Object.entries(CharacterEntities).forEach(entry => {
         let [character,entitie] = entry
-        url = url?.replaceAll(entitie,character)
+        url = url.replaceAll(entitie,character)
     })
 
 
