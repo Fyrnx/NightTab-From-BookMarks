@@ -57,11 +57,13 @@ let server = http.createServer((req,res) => {
     functions = {
         GET,POST,PATCH,DELETE
     }
-    let url = new URL(`http://www.example.com${req.url}`)
+
+    let url = new URL(`https://www.example.com${req.url}`)
     let method = url.searchParams.get("method")
+
+    console.log(method);
     res.end(method)
     return
-    let method = new URL(`http://${req.url}`).searchParams.get("method")
 
     if(method == "GET" || method == null) {
         functions.GET(res)
@@ -97,12 +99,10 @@ let server = http.createServer((req,res) => {
                 urlsObject.push(url)
             }
         })
-        console.log("POST",urls,urlsObject)
     }
 
     function PATCH() {
         urlsObject = urls
-        console.log("PATCH",urls,urlsObject)
     }
 
     function DELETE() {
@@ -112,7 +112,6 @@ let server = http.createServer((req,res) => {
                 urlsObject.splice(index,1)
             }
         })
-        console.log("PATCH",urls,urlsObject)
     }
 
     function GET() {
