@@ -20,6 +20,7 @@ function random(min,max) {
 function randomVideo(res) {
     let url = randomUrl()
     console.log(url,urlsObject);
+    if(url == undefined) {res.end("can't get video url"); return}
     let CharacterEntities = { 
         " ":"&nbsp;",
         "<":"%lt;",
