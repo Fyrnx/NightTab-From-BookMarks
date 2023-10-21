@@ -61,10 +61,6 @@ let server = http.createServer((req,res) => {
     let url = new URL(`https://www.example.com${req.url}`)
     let method = url.searchParams.get("method")
 
-    console.log(method);
-    res.end(method)
-    return
-
     if(method == "GET" || method == null) {
         functions.GET(res)
         return
