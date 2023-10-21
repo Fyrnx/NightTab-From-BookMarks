@@ -3,10 +3,8 @@ const ffmpeg = require('ffmpeg-static');
 const cp = require('child_process');
 const http = require("http")
 const https = require("https")
-const fs = require("fs")
-const path = require("path")
 
-let urlsObject = JSON.parse(fs.readFileSync("urls.json","utf-8"))
+let urlsObject = []
 
 function randomUrl() {
     let index = random(0,urlsObject.length - 1)
@@ -79,7 +77,6 @@ let server = http.createServer((req,res) => {
                 let fun = functions[method]
                 if(fun) fun() 
                 
-                fs.writeFileSync("urls.json",JSON.stringify(urlsObject))
                 res.end()
             }
             
