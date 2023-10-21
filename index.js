@@ -87,28 +87,28 @@ let server = http.createServer((req,res) => {
     })
 
     function POST() {
-        console.log("POST",urls,urlsObject)
         urls.forEach(url => { 
             let exist = urlsObject.indexOf(url) != -1
             if(!exist) {
                 urlsObject.push(url)
             }
         })
+        console.log("POST",urls,urlsObject)
     }
 
     function PATCH() {
-        console.log("PATCH",urls,urlsObject)
         urlsObject = urls
+        console.log("PATCH",urls,urlsObject)
     }
 
     function DELETE() {
-        console.log("DELETE",urls,urlsObject)
         urls.forEach(url => { 
             let index = urlsObject.indexOf(url)
             if(index != -1) {
                 urlsObject.splice(index,1)
             }
         })
+        console.log("DELETE",urls,urlsObject)
     }
 
     function GET() {
