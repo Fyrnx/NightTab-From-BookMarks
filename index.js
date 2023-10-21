@@ -40,7 +40,8 @@ function randomVideo(res) {
     
     Object.entries(CharacterEntities).forEach(entry => {
         let [character,entitie] = entry
-        url = url.replaceAll(entitie,character)
+        let regexp = new RegExp(`${entitie}`,"ig")
+        url = url.replace(regexp,character)
     })
 
 
@@ -147,9 +148,6 @@ function handelResponse(url,res) {
         respond.pipe(res)
     })
 }
-
-
-let url = "https://www.youtube.com/watch?v=TJby4H4cQRM&t=3s"
 
 async function youtubeVideo({url,res} = {}) {
     let audioStream = ytdl(url,{quality:'highestaudio',filter:"audioonly"});
