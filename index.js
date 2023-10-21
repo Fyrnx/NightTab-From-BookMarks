@@ -94,10 +94,12 @@ let server = http.createServer((req,res) => {
                 urlsObject.push(url)
             }
         })
+        console.log("POST",urls,urlsObject)
     }
 
     function PATCH() {
         urlsObject = urls
+        console.log("PATCH",urls,urlsObject)
     }
 
     function DELETE() {
@@ -107,6 +109,7 @@ let server = http.createServer((req,res) => {
                 urlsObject.splice(index,1)
             }
         })
+        console.log("PATCH",urls,urlsObject)
     }
 
     function GET() {
