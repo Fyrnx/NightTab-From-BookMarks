@@ -67,11 +67,9 @@ let server = http.createServer((req,res) => {
 
     req.on("data",data => { 
         jsonObject = JSON.parse(data);
-        let index = 0
 
-        jsonObject.forEach((url,x) => { 
-            url = url
-            index++
+        jsonObject.forEach((url,index) => { 
+            
             if(url != null) {
                 urls.push(url)
             }
