@@ -148,6 +148,7 @@ function handelResponse(url,res) {
 }
 
 async function youtubeVideo({url,res} = {}) {
+    url = url.replace(/shorts\//ig,"watch?v=")
     let audioStream = ytdl(url,{quality:'highestaudio',filter:"audioonly"});
     let videoStream = ytdl(url,{quality:'highestvideo'});
 
